@@ -8,10 +8,10 @@ PowerConsumption$Date <- as.Date(PowerConsumption$Date,format="%d/%m/%Y")
 ReqPowerConsumption <- subset(PowerConsumption, PowerConsumption$Date >= "2007-02-01" & PowerConsumption$Date <= "2007-02-02")
 
 # Converting dates
-datetime <- paste(as.Date(data$Date), data$Time)
+datetime <- paste(as.Date(ReqPowerConsumption$Date), ReqPowerConsumption$Time)
 ReqPowerConsumption$Datetime <- as.POSIXct(datetime)
 
-with(data, {
+with(ReqPowerConsumption, {
     plot(Sub_metering_1~Datetime, type="l",
          ylab="Energy Sub metering", xlab="")
     lines(Sub_metering_2~Datetime,col='Red')

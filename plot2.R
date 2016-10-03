@@ -8,7 +8,7 @@ PowerConsumption$Date <- as.Date(PowerConsumption$Date,format="%d/%m/%Y")
 ReqPowerConsumption <- subset(PowerConsumption, PowerConsumption$Date >= "2007-02-01" & PowerConsumption$Date <= "2007-02-02")
 
 # Converting dates
-datetime <- paste(as.Date(data$Date), data$Time)
+datetime <- paste(as.Date(ReqPowerConsumption$Date), ReqPowerConsumption$Time)
 ReqPowerConsumption$Datetime <- as.POSIXct(datetime)
 
 plot(ReqPowerConsumption$Datetime, ReqPowerConsumption$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power(kilowatts)")
